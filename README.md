@@ -1,0 +1,2 @@
+# katmail.xyz configurations
+

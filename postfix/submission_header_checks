@@ -1,0 +1,2 @@
+/^Received:.*\(Authenticated sender:/ IGNORE
+/^Received:.*\(Postfix/ IGNORE

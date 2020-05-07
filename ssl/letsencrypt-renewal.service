@@ -1,0 +1,8 @@
+[Unit]
+Description=Lets Encrypt Cert Renewal Service
+
+[Service]
+Type=oneshot
+ExecStart=certbot renew --preferred-challenges=dns --dns-cloudflare --dns-cloudflare-credentials /etc/letsencrypt/cf-creds/katmail.xyz.cf.ini --reuse-key
+User=root
+Group=root

@@ -101,3 +101,20 @@ smtpd_milters       = unix:/run/opendkim/opendkim.sock, unix:/run/opendmarc/open
 ###Strong DHE Parameters:
 
 Download [3072/4096-bit parameters](https://github.com/internetstandards/dhe_groups) and save to `/etc/postfix/ssl-dhparam`.
+
+## MTA-STS
+Host `.well-known/mta-sts.txt` at `https://mta-sts.[your-domain]/.well-known/mta-sts.txt`.
+
+```
+version: STSv1
+mode: enforce
+mx: mail.katmail.xyz
+max_age: 604800
+```
+
+Also remember to insert 2 DNS TXT Records:
+
+1. `v=TLSRPTv1; rua=mailto:EMAIL` for `_smtp._tls`.
+2. `v=STSv1; id=(increasing nonce)` for `_mta-sts`.
+
+Use `https://aykevl.nl/apps/mta-sts/` to check if setup correctly.

@@ -684,9 +684,11 @@ sample_directory = /etc/postfix
 # readme_directory: The location of the Postfix README files.
 #
 readme_directory = /usr/share/doc/postfix
-inet_protocols = ipv4 ipv6
+inet_protocols = ipv4, ipv6
 meta_directory = /etc/postfix
 shlib_directory = /usr/lib/postfix
+
+smtp_address_preference = ipv4
 
 # delegate authentication to dovecot
 smtpd_sasl_type = dovecot

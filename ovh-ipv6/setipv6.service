@@ -1,0 +1,12 @@
+[Unit]
+Description=Set ipv6 inet address for eth0
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=sh -C /usr/bin/setipv6.sh up
+ExecStop=sh -C /usr/bin/setipv6.sh down
+RemainAfterExit=true
+
+[Install]
+WantedBy=ipv6.target
